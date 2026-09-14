@@ -6,7 +6,7 @@ public class MilkRecipeCalculator
     {
         if (milkVolumeM1 <= 0) return 0m;
 
-        decimal baseSyrupM1 = milkVolumeM1 * 0.1m;
+        decimal baseSyrupM1 = milkVolumeM1 * 0.1m; // Base syrup is 10% of milk volume
 
         return richnessLevel.ToUpper() switch
         {
@@ -14,7 +14,7 @@ public class MilkRecipeCalculator
             "REGULAR" => baseSyrupM1,
             "EXTRA" => baseSyrupM1 * 1.5m,
             "ULTRA_CHOCO" => baseSyrupM1 * 2.0m,
-            _ => baseSyrupM1
+            _ => baseSyrupM1 // Default to medium if unknown richness level
         };
     }
 }
